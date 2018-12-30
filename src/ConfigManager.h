@@ -125,6 +125,7 @@ public:
     void setAPPassword(const char *password);
     void setAPFilename(const char *filename);
     void setAPTimeout(const int timeout);
+    void setForceSavedWifi(const bool forceSavedWifi);
     void setWifiConnectRetries(const int retries);
     void setWifiConnectInterval(const int interval);
     void setAPCallback(std::function<void(WebServer*)> callback);
@@ -166,6 +167,7 @@ private:
     char *apPassword = NULL;
     char *apFilename = (char *)"/index.html";
     int apTimeout = 0;
+    bool forceSavedWifi = false;
     unsigned long apStart = 0;
 
     int wifiConnectRetries = 20;

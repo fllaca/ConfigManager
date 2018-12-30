@@ -27,6 +27,10 @@ void ConfigManager::setAPTimeout(const int timeout) {
     this->apTimeout = timeout;
 }
 
+void ConfigManager::setForceSavedWifi(const bool forceSavedWifi) {
+    this->forceSavedWifi = forceSavedWifi;
+}
+
 void ConfigManager::setWifiConnectRetries(const int retries) {
     this->wifiConnectRetries = retries;
 }
@@ -226,6 +230,10 @@ void ConfigManager::setup() {
             WiFi.mode(WIFI_STA);
             startApi();
             return;
+        } else {
+            if (forceSavedWifi){
+	    	return;
+	    }
         }
     } else {
         // We are at a cold start, don't bother timeing out.
